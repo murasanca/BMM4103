@@ -1,4 +1,4 @@
-# <a href="" target="_blank">BMM4103 Midterm Exam</a>
+# <a href="" target="_blank">BMM4103 ME</a>
 Mobile Programming Midterm Exam
 <hr>
 

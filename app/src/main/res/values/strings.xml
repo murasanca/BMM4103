@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">BMM4103ME</string>
     <string name="numberNameSurname">201913709082\n\nMurat Sancak</string>
+    <string name="counter">0</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+    <string name="settings">Settings</string>
 </resources>

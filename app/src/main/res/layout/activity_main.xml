@@ -8,14 +8,14 @@
     android:background="@drawable/background">
 
     <TextView
-        android:textColor="@color/white"
-        android:textAlignment="center"
-        android:fontFamily="cursive"
-        android:textSize="32sp"
-        android:rotation="-35"
-        android:layout_width="256dp"
+        android:layout_width="0dp"
         android:layout_height="128dp"
+        android:fontFamily="cursive"
+        android:rotation="-35"
         android:text="@string/numberNameSurname"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

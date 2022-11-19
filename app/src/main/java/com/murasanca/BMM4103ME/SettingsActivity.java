@@ -3,15 +3,12 @@ package com.murasanca.BMM4103ME;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.ImageButton;
 
 import java.util.Objects;
 
-public class HomeActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +20,14 @@ public class HomeActivity extends AppCompatActivity {
         );
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_settings2);
 
-        ImageButton iB=(ImageButton) findViewById(R.id.settingsButton);
-        iB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this,SettingsActivity.class));
-            }
-        });
+
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        startActivity(new Intent(SettingsActivity.this,HomeActivity.class));
     }
 }

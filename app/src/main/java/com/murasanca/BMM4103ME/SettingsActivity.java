@@ -20,9 +20,7 @@ public class SettingsActivity extends AppCompatActivity {
         );
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-        setContentView(R.layout.activity_settings2);
-
-
+        setContentView(R.layout.activity_settings);
     }
 
     @Override

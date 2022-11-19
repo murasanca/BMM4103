@@ -7,9 +7,53 @@
     tools:context=".HomeActivity"
     android:background="@drawable/background">
 
+    <TextView
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="64dp"
+        android:fontFamily="cursive"
+        android:id="@+id/counterText"
+        android:layout_width="279dp"
+        android:layout_height="124dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/counter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:backgroundTint="@color/green"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="32dp"
+        android:fontFamily="cursive"
+        android:id="@+id/plusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:text="@string/plus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/counterText" />
+
+    <Button
+        android:backgroundTint="@color/red"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="32dp"
+        android:fontFamily="cursive"
+        android:id="@+id/minusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/minus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plusButton" />
+
     <ImageButton
-        app:tint="@color/white"
         android:background="@color/transparent"
+        app:tint="@color/white"
         android:contentDescription="@string/settings"
         android:id="@+id/settingsButton"
         android:layout_width="wrap_content"
@@ -22,48 +66,4 @@
         app:layout_constraintTop_toBottomOf="@+id/minusButton"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/settings" />
-
-    <TextView
-        android:id="@+id/counter"
-        android:layout_width="261dp"
-        android:layout_height="122dp"
-        android:layout_marginTop="64dp"
-        android:text="@string/counter"
-        android:textColor="@color/white"
-        android:textAlignment="center"
-        android:textSize="64sp"
-        android:fontFamily="cursive"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/plusButton"
-        android:backgroundTint="@color/green"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:text="@string/plus"
-        android:textColor="@color/white"
-        android:textAlignment="center"
-        android:textSize="32sp"
-        android:fontFamily="cursive"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/counter" />
-
-    <Button
-        android:id="@+id/minusButton"
-        android:backgroundTint="@color/red"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/minus"
-        android:textColor="@color/white"
-        android:textAlignment="center"
-        android:textSize="32sp"
-        android:fontFamily="cursive"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/plusButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

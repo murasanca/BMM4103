@@ -24,13 +24,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         new Handler().postDelayed
-                (
-                        ()->
-                        {
-                            startActivity(new Intent(MainActivity.this,HomeActivity.class));
-                            finish();
-                        },
-                        2000
-                );
+        (
+                ()->
+                {
+                    startActivity(new Intent(MainActivity.this,HomeActivity.class));
+                    finish();
+                },
+                2000
+        );
     }
 }

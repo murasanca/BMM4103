@@ -1,9 +1,13 @@
 package com.murasanca.BMM4103ME;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.math.MathUtils;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.RingtoneManager;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.KeyEvent;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -16,6 +20,11 @@ public class HomeActivity extends AppCompatActivity
 {
     int countInteger=0;
     TextView counterTextView;
+
+    private final int
+        lowerLimit=0,
+        upperLimit=16;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -37,10 +46,10 @@ public class HomeActivity extends AppCompatActivity
         counterTextView.setText(String.valueOf(countInteger));
 
         Button plusBttn= findViewById(R.id.plusButton);
-        plusBttn.setOnClickListener(view -> counterTextView.setText(String.valueOf(++countInteger)));
+        plusBttn.setOnClickListener(view -> add2Counter(1));
 
         Button minusBttn= findViewById(R.id.minusButton);
-        minusBttn.setOnClickListener(view -> counterTextView.setText(String.valueOf(--countInteger)));
+        minusBttn.setOnClickListener(view -> add2Counter(-1));
     }
 
     @Override
@@ -48,15 +57,35 @@ public class HomeActivity extends AppCompatActivity
     {
         if(keyCode==KeyEvent.KEYCODE_VOLUME_DOWN)
         {
-            counterTextView.setText(String.valueOf(countInteger-=5));
+            add2Counter(-5);
             return true;
         }
         else if(keyCode==KeyEvent.KEYCODE_VOLUME_UP)
         {
-            counterTextView.setText(String.valueOf(countInteger+=5));
+            add2Counter(5);
             return true;
         }
         else
             return super.onKeyDown(keyCode,event);
+    }
+
+    //TODO: add2Counter Method.
+    private void add2Counter(int addition)
+    {
+        if(addition+countInteger<lowerLimit || addition+countInteger>upperLimit)
+        {
+            if(SettingsActivity.isVibrationChecked)
+                ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE)).vibrate(128);
+            if(SettingsActivity.isSoundChecked)
+            {
+                RingtoneManager.getRingtone
+                        (
+                                getApplicationContext(),
+                                RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+                        ).play();
+            }
+        }
+
+        counterTextView.setText(String.valueOf(countInteger= MathUtils.clamp(addition+countInteger,lowerLimit,upperLimit)));
     }
 }

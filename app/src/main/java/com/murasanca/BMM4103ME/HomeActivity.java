@@ -21,10 +21,6 @@ public class HomeActivity extends AppCompatActivity
     int countInteger=0;
     TextView counterTextView;
 
-    private final int
-        lowerLimit=0,
-        upperLimit=16;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -72,7 +68,8 @@ public class HomeActivity extends AppCompatActivity
     //TODO: add2Counter Method.
     private void add2Counter(int addition)
     {
-        if(addition+countInteger<lowerLimit || addition+countInteger>upperLimit)
+        final int lowerLimit = 0,upperLimit = 16;
+        if(addition+countInteger< lowerLimit || addition+countInteger> upperLimit)
         {
             if(SettingsActivity.isVibrationChecked)
                 ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE)).vibrate(128);
@@ -86,6 +83,6 @@ public class HomeActivity extends AppCompatActivity
             }
         }
 
-        counterTextView.setText(String.valueOf(countInteger= MathUtils.clamp(addition+countInteger,lowerLimit,upperLimit)));
+        counterTextView.setText(String.valueOf(countInteger= MathUtils.clamp(addition+countInteger, lowerLimit, upperLimit)));
     }
 }

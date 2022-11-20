@@ -8,32 +8,35 @@
     android:background="@drawable/background">
 
     <CheckBox
+        android:id="@+id/soundCheckBox"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="370dp"
         android:buttonTint="@color/white"
         android:fontFamily="cursive"
+        android:rotation="-35"
+        android:text="@string/sound"
         android:textColor="@color/white"
         android:textSize="32sp"
-        android:id="@+id/soundCheckBox"
-        android:layout_width="256dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="512dp"
-        android:text="@string/sound"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
+        android:id="@+id/vibrationCheckBox"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="200dp"
         android:buttonTint="@color/white"
         android:fontFamily="cursive"
+        android:rotation="-35"
+        android:text="@string/vibration"
         android:textColor="@color/white"
         android:textSize="32sp"
-        android:id="@+id/vibrationCheckBox"
-        android:layout_width="256dp"
-        android:layout_height="64dp"
-        android:text="@string/vibration"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/soundCheckBox"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

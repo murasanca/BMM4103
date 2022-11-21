@@ -9,25 +9,27 @@
 
     <CheckBox
         android:id="@+id/soundCheckBox"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="370dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="145dp"
         android:buttonTint="@color/white"
         android:fontFamily="cursive"
         android:rotation="-35"
         android:text="@string/sound"
         android:textColor="@color/white"
         android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/vibrationCheckBox"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/vibrationCheckBox"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:layout_marginBottom="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="64dp"
         android:buttonTint="@color/white"
         android:fontFamily="cursive"
         android:rotation="-35"
@@ -36,7 +38,102 @@
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lowerLimitPlusButton"
+        app:layout_constraintVertical_bias="0.225" />
+
+    <TextView
+        android:id="@+id/upperLimitTextView"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="216dp"
+        android:fontFamily="cursive"
+        android:rotation="-35"
+        android:text="@string/counter"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toStartOf="@+id/upperLimitPlusButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/upperLimitMinusButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lowerLimitTextView"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="cursive"
+        android:rotation="-35"
+        android:text="@string/counter"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lowerLimitPlusButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/lowerLimitMinusButton"
+        app:layout_constraintTop_toBottomOf="@+id/upperLimitTextView"
+        app:layout_constraintVertical_bias="0" />
+
+    <Button
+        android:id="@+id/upperLimitMinusButton"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="270dp"
+        android:backgroundTint="@color/red"
+        android:contentDescription="@string/upperLimitMinusButton"
+        android:fontFamily="cursive"
+        android:rotation="-35"
+        android:text="@string/minus"
+        android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/soundCheckBox"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/upperLimitPlusButton"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="122dp"
+        android:layout_marginEnd="64dp"
+        android:backgroundTint="@color/green"
+        android:contentDescription="@string/upperLimitPlusButton"
+        android:fontFamily="cursive"
+        android:rotation="-35"
+        android:text="@string/plus"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/lowerLimitMinusButton"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/red"
+        android:contentDescription="@string/lowerLimitMinusButton"
+        android:fontFamily="cursive"
+        android:rotation="-35"
+        android:text="@string/minus"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/soundCheckBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upperLimitMinusButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/lowerLimitPlusButton"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="64dp"
+        android:backgroundTint="@color/green"
+        android:contentDescription="@string/lowerLimitPlusButton"
+        android:fontFamily="cursive"
+        android:rotation="-35"
+        android:text="@string/plus"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upperLimitPlusButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

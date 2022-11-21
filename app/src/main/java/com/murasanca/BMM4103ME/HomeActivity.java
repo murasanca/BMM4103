@@ -2,7 +2,6 @@ package com.murasanca.BMM4103ME;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.math.MathUtils;
-
 import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
@@ -13,14 +12,15 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+//TODO: Import of shake dependencies.
+
 
 import java.util.Objects;
 
 public class HomeActivity extends AppCompatActivity
 {
-    int countInteger=0;
-    TextView counterTextView;
-
+    private TextView counterTextView;
+    public static int countInteger=0,lowerLimit = 0,upperLimit = 16;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -46,6 +46,9 @@ public class HomeActivity extends AppCompatActivity
 
         Button minusBttn= findViewById(R.id.minusButton);
         minusBttn.setOnClickListener(view -> add2Counter(-1));
+
+        //TODO: Definition of Sensor Manager.
+
     }
 
     @Override
@@ -65,10 +68,8 @@ public class HomeActivity extends AppCompatActivity
             return super.onKeyDown(keyCode,event);
     }
 
-    //TODO: add2Counter Method.
     private void add2Counter(int addition)
     {
-        final int lowerLimit = 0,upperLimit = 16;
         if(addition+countInteger< lowerLimit || addition+countInteger> upperLimit)
         {
             if(SettingsActivity.isVibrationChecked)

@@ -4,6 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.math.MathUtils;
 import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -12,8 +16,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-//TODO: Import of shake dependencies.
-
 
 import java.util.Objects;
 
@@ -47,8 +49,36 @@ public class HomeActivity extends AppCompatActivity
         Button minusBttn= findViewById(R.id.minusButton);
         minusBttn.setOnClickListener(view -> add2Counter(-1));
 
-        //TODO: Definition of Sensor Manager.
+        SensorManager sensorManager=(SensorManager) getSystemService(SENSOR_SERVICE);
+        Sensor sensorShake=sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        SensorEventListener sensorEventListener=new SensorEventListener()
+        {
+            @Override
+            public void onSensorChanged(SensorEvent sensorEvent)
+            {
+                if
+                (
+                        sensorEvent!=null&&
+                        (
+                                16<sensorEvent.values[0]||
+                                -16>sensorEvent.values[0]||
+                                16<sensorEvent.values[1]||
+                                -16>sensorEvent.values[1]||
+                                16<sensorEvent.values[2]||
+                                -16>sensorEvent.values[2]
+                        )
+                )
+                {
+                    lowerLimit=0;
+                    upperLimit=16;
+                    counterTextView.setText(String.valueOf(countInteger=0));
+                }
+            }
 
+            @Override
+            public void onAccuracyChanged(Sensor sensor, int i){}
+        };
+        sensorManager.registerListener(sensorEventListener,sensorShake,SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override

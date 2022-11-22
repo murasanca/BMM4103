@@ -8,7 +8,17 @@ public class SharedPreferencesClass
     private static SharedPreferences sharedPreferences;
     private static SharedPreferences.Editor editor;
 
-    public static void Setup(Context context)
+    private static SharedPreferencesClass sharedPreferencesClass=null;
+
+    public static SharedPreferencesClass getInstance(Context context)
+    {
+        if(sharedPreferencesClass==null)
+            sharedPreferencesClass=new SharedPreferencesClass(context);
+
+        return sharedPreferencesClass;
+    }
+
+    private SharedPreferencesClass(Context context)
     {
         sharedPreferences=context.getSharedPreferences(context.getPackageName(),Context.MODE_PRIVATE);
         editor=sharedPreferences.edit();

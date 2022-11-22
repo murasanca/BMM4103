@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.math.MathUtils;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -37,7 +36,7 @@ public class HomeActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_home);
 
-        SharedPreferencesClass.Setup(getApplicationContext());
+        SharedPreferencesClass.getInstance(getApplicationContext());
 
         ImageButton settingsImageButton=findViewById(R.id.settingsButton);
         settingsImageButton.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this,SettingsActivity.class)));

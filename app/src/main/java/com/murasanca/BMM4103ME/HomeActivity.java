@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.math.MathUtils;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -22,7 +23,6 @@ import java.util.Objects;
 public class HomeActivity extends AppCompatActivity
 {
     private TextView counterTextView;
-    public static int countInteger=0,lowerLimit = 0,upperLimit = 16;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -37,11 +37,13 @@ public class HomeActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_home);
 
+        SharedPreferencesClass.Setup(getApplicationContext());
+
         ImageButton settingsImageButton=findViewById(R.id.settingsButton);
         settingsImageButton.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this,SettingsActivity.class)));
 
         counterTextView= findViewById(R.id.counterText);
-        counterTextView.setText(String.valueOf(countInteger));
+        counterTextView.setText(String.valueOf(SharedPreferencesClass.getCountInteger()));
 
         Button plusBttn= findViewById(R.id.plusButton);
         plusBttn.setOnClickListener(view -> add2Counter(1));
@@ -69,9 +71,10 @@ public class HomeActivity extends AppCompatActivity
                         )
                 )
                 {
-                    lowerLimit=0;
-                    upperLimit=16;
-                    counterTextView.setText(String.valueOf(countInteger=0));
+                    SharedPreferencesClass.setLowerLimit(0);
+                    SharedPreferencesClass.setUpperLimit(16);
+                    SharedPreferencesClass.setCountInteger(0);
+                    counterTextView.setText(String.valueOf(SharedPreferencesClass.getCountInteger()));
                 }
             }
 
@@ -100,11 +103,11 @@ public class HomeActivity extends AppCompatActivity
 
     private void add2Counter(int addition)
     {
-        if(addition+countInteger< lowerLimit || addition+countInteger> upperLimit)
+        if(addition+SharedPreferencesClass.getCountInteger()< SharedPreferencesClass.getLowerLimit() || addition+SharedPreferencesClass.getCountInteger()>SharedPreferencesClass.getUpperLimit())
         {
-            if(SettingsActivity.isVibrationChecked)
+            if(SharedPreferencesClass.getVibrationCheck())
                 ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE)).vibrate(128);
-            if(SettingsActivity.isSoundChecked)
+            if(SharedPreferencesClass.getSoundCheck())
             {
                 RingtoneManager.getRingtone
                         (
@@ -114,6 +117,7 @@ public class HomeActivity extends AppCompatActivity
             }
         }
 
-        counterTextView.setText(String.valueOf(countInteger= MathUtils.clamp(addition+countInteger, lowerLimit, upperLimit)));
+        SharedPreferencesClass.setCountInteger(MathUtils.clamp(addition+SharedPreferencesClass.getCountInteger(), SharedPreferencesClass.getLowerLimit(), SharedPreferencesClass.getUpperLimit()));
+        counterTextView.setText(String.valueOf(SharedPreferencesClass.getCountInteger()));
     }
 }

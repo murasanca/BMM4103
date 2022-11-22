@@ -17,10 +17,6 @@ import java.util.Objects;
 
 public class SettingsActivity extends AppCompatActivity
 {
-    public static boolean
-        isSoundChecked=true,
-        isVibrationChecked=true;
-
     private TextView lowerLimitTextView,upperLimitTextView;
 
     @Override
@@ -38,20 +34,20 @@ public class SettingsActivity extends AppCompatActivity
         setContentView(R.layout.activity_settings);
 
         CheckBox soundChckBx=findViewById(R.id.soundCheckBox);
-        soundChckBx.setChecked(isSoundChecked);
+        soundChckBx.setChecked(SharedPreferencesClass.getSoundCheck());
 
         CheckBox vibrationChckBx=findViewById(R.id.vibrationCheckBox);
-        vibrationChckBx.setChecked(isVibrationChecked);
+        vibrationChckBx.setChecked(SharedPreferencesClass.getVibrationCheck());
 
-        soundChckBx.setOnCheckedChangeListener((compoundButton, b) -> isSoundChecked=b);
+        soundChckBx.setOnCheckedChangeListener((compoundButton, b) -> SharedPreferencesClass.setSoundCheck(b));
 
-        vibrationChckBx.setOnCheckedChangeListener((compoundButton, b) -> isVibrationChecked=b);
+        vibrationChckBx.setOnCheckedChangeListener((compoundButton, b) -> SharedPreferencesClass.setVibrationCheck(b));
 
         lowerLimitTextView=findViewById(R.id.lowerLimitTextView);
-        lowerLimitTextView.setText(String.valueOf(HomeActivity.lowerLimit));
+        lowerLimitTextView.setText(String.valueOf(SharedPreferencesClass.getLowerLimit()));
 
         upperLimitTextView=findViewById(R.id.upperLimitTextView);
-        upperLimitTextView.setText(String.valueOf(HomeActivity.upperLimit));
+        upperLimitTextView.setText(String.valueOf(SharedPreferencesClass.getUpperLimit()));
 
         Button upperLimitMinusBttn=findViewById(R.id.upperLimitMinusButton);
         Button lowerLimitMinusBttn=findViewById(R.id.lowerLimitMinusButton);
@@ -72,11 +68,11 @@ public class SettingsActivity extends AppCompatActivity
 
     private void add2UpperLimit(int addition)
     {
-        if(HomeActivity.upperLimit==Integer.MAX_VALUE) // 2^31-1
+        if(SharedPreferencesClass.getUpperLimit()==Integer.MAX_VALUE) // 2^31-1
             return;
-        else if(Integer.signum(addition)+HomeActivity.upperLimit<HomeActivity.countInteger)
+        else if(Integer.signum(addition)+SharedPreferencesClass.getUpperLimit()<SharedPreferencesClass.getCountInteger())
         {
-            if(isSoundChecked)
+            if(SharedPreferencesClass.getSoundCheck())
             {
                 RingtoneManager.getRingtone
                         (
@@ -84,19 +80,20 @@ public class SettingsActivity extends AppCompatActivity
                                 RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
                         ).play();
             }
-            if(isVibrationChecked)
+            if(SharedPreferencesClass.getVibrationCheck())
                 ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE)).vibrate(128);
         }
 
-        upperLimitTextView.setText(String.valueOf(HomeActivity.upperLimit= MathUtils.clamp(Integer.signum(addition)+HomeActivity.upperLimit,HomeActivity.countInteger,Integer.MAX_VALUE)));
+        SharedPreferencesClass.setUpperLimit(MathUtils.clamp(Integer.signum(addition)+SharedPreferencesClass.getUpperLimit(),SharedPreferencesClass.getCountInteger(),Integer.MAX_VALUE));
+        upperLimitTextView.setText(String.valueOf(SharedPreferencesClass.getUpperLimit()));
     }
     private void add2LowerLimit(int addition)
     {
-        if(HomeActivity.lowerLimit==Integer.MIN_VALUE) // -2^31
+        if(SharedPreferencesClass.getLowerLimit()==Integer.MIN_VALUE) // -2^31
             return;
-        else if(Integer.signum(addition)+HomeActivity.lowerLimit>HomeActivity.countInteger) // -2^31
+        else if(Integer.signum(addition)+SharedPreferencesClass.getLowerLimit()>SharedPreferencesClass.getCountInteger()) // -2^31
         {
-            if(isSoundChecked)
+            if(SharedPreferencesClass.getSoundCheck())
             {
                 RingtoneManager.getRingtone
                         (
@@ -104,10 +101,11 @@ public class SettingsActivity extends AppCompatActivity
                                 RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
                         ).play();
             }
-            if(isVibrationChecked)
+            if(SharedPreferencesClass.getVibrationCheck())
                 ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE)).vibrate(128);
         }
 
-        lowerLimitTextView.setText(String.valueOf(HomeActivity.lowerLimit= MathUtils.clamp(Integer.signum(addition)+HomeActivity.lowerLimit,Integer.MIN_VALUE,HomeActivity.countInteger))); // -2^31
+        SharedPreferencesClass.setLowerLimit(MathUtils.clamp(Integer.signum(addition)+SharedPreferencesClass.getLowerLimit(),Integer.MIN_VALUE,SharedPreferencesClass.getCountInteger()));
+        lowerLimitTextView.setText(String.valueOf(SharedPreferencesClass.getLowerLimit())); // -2^31
     }
 }

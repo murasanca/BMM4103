@@ -28,9 +28,10 @@ public class HomeActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
 
-        getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
+        getWindow().setFlags
+        (
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
         );
         Objects.requireNonNull(getSupportActionBar()).hide();
 

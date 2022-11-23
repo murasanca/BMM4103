@@ -26,8 +26,8 @@ public class SettingsActivity extends AppCompatActivity
 
         getWindow().setFlags
         (
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
         );
         Objects.requireNonNull(getSupportActionBar()).hide();
 
@@ -75,10 +75,10 @@ public class SettingsActivity extends AppCompatActivity
             if(SharedPreferencesClass.getSoundCheck())
             {
                 RingtoneManager.getRingtone
-                        (
-                                getApplicationContext(),
-                                RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-                        ).play();
+                    (
+                        getApplicationContext(),
+                        RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+                    ).play();
             }
             if(SharedPreferencesClass.getVibrationCheck())
                 ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE)).vibrate(128);
@@ -96,10 +96,10 @@ public class SettingsActivity extends AppCompatActivity
             if(SharedPreferencesClass.getSoundCheck())
             {
                 RingtoneManager.getRingtone
-                        (
-                                getApplicationContext(),
-                                RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-                        ).play();
+                    (
+                        getApplicationContext(),
+                        RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+                    ).play();
             }
             if(SharedPreferencesClass.getVibrationCheck())
                 ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE)).vibrate(128);

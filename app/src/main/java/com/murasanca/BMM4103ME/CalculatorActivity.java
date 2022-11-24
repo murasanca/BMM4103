@@ -12,7 +12,6 @@ import java.util.Objects;
 
 public class CalculatorActivity extends AppCompatActivity
 {
-    //TODO: State of mathematical operation and definition of necessary variables.
     private enum operations
     {
         addition,

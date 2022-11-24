@@ -14,4 +14,15 @@
     <string name="lowerLimitMinusButton">LowerLimitMinusButton</string>
     <string name="upperLimitPlusButton">UpperLimitPlusButton</string>
     <string name="lowerLimitPlusButton">LowerLimitPlusButton</string>
+
+    <string name="calculatorImage">CalculatorImage</string>
+    <string name="ac">AC</string> <!-- AC: All Clear -->
+    <string name="c">C</string> <!-- C: Clear -->
+    <string name="x">x</string>
+    <string name="slash">/</string>
+    <string name="equal">=</string>
+    <string name="factorial">X!</string>
+    <string name="sin">SIN</string>
+    <string name="cos">COS</string>
+    <string name="tan">TAN</string>
 </resources>

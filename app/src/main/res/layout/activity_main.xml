@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="cursive"
-        android:rotation="-35"
+        android:rotation="-34"
         android:text="@string/numberNameSurname"
         android:textAlignment="center"
         android:textColor="@color/white"

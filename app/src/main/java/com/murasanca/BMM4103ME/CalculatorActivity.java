@@ -42,26 +42,27 @@ public class CalculatorActivity extends AppCompatActivity
         editText=findViewById(R.id.editTextNumber);
         editText.setText(String.valueOf(0));
         editText.addTextChangedListener
-                (
-                        new TextWatcher() {
-                            @Override
-                            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2){}
-                            @Override
-                            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2){}
-                            @Override
-                            public void afterTextChanged(Editable editable)
-                            {
-                                try
-                                {
-                                    if(onX)
-                                        x=Double.parseDouble(editable.toString());
-                                    else
-                                        y=Double.parseDouble(editable.toString());
-                                }
-                                catch (Exception exception){}
-                            }
-                        }
-                );
+        (
+            new TextWatcher()
+            {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2){}
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2){}
+                @Override
+                public void afterTextChanged(Editable editable)
+                {
+                    try
+                    {
+                        if(onX)
+                            x=Double.parseDouble(editable.toString());
+                        else
+                            y=Double.parseDouble(editable.toString());
+                    }
+                    catch (Exception exception){}
+                }
+            }
+        );
 
         findViewById(R.id.allClearButton).setOnClickListener(view -> editText.setText(String.valueOf(x=y=0)));
 
@@ -77,32 +78,32 @@ public class CalculatorActivity extends AppCompatActivity
         );
 
         findViewById(R.id.equalButton).setOnClickListener
-                (
-                        view ->
-                        {
-                            switch (operation)
-                            {
-                                case addition:
-                                    x+=y;
-                                    break;
-                                case subtraction:
-                                    x-=y;
-                                    break;
-                                case multiplication:
-                                    x*=y;
-                                    break;
-                                case division:
-                                    if(y!=0)
-                                        x/=y;
-                                    break;
-                                default:
-                                    break;
-                            }
-                            editText.setText(String.valueOf(x));
-                            onX=false;
-                            y=0;
-                        }
-                );
+        (
+                view ->
+                {
+                    switch (operation)
+                    {
+                        case addition:
+                            x+=y;
+                            break;
+                        case subtraction:
+                            x-=y;
+                            break;
+                        case multiplication:
+                            x*=y;
+                            break;
+                        case division:
+                            if(y!=0)
+                                x/=y;
+                            break;
+                        default:
+                            break;
+                    }
+                    editText.setText(String.valueOf(x));
+                    onX=false;
+                    y=0;
+                }
+        );
 
         findViewById(R.id.additionButton).setOnClickListener
         (
@@ -118,43 +119,43 @@ public class CalculatorActivity extends AppCompatActivity
         );
 
         findViewById(R.id.divisionButton).setOnClickListener
-                (
-                        view ->
-                        {
-                            operation=operations.division;
-                            if(onX)
-                                onX=false;
-                            else if(y!=0)
-                                x/=y;
-                            editText.setText(String.valueOf(0));
-                        }
-                );
+        (
+                view ->
+                {
+                    operation=operations.division;
+                    if(onX)
+                        onX=false;
+                    else if(y!=0)
+                        x/=y;
+                    editText.setText(String.valueOf(0));
+                }
+        );
 
         findViewById(R.id.multiplicationButton).setOnClickListener
-                (
-                        view ->
-                        {
-                            operation=operations.multiplication;
-                            if(onX)
-                                onX=false;
-                            else
-                                x*=y;
-                            editText.setText(String.valueOf(0));
-                        }
-                );
+        (
+                view ->
+                {
+                    operation=operations.multiplication;
+                    if(onX)
+                        onX=false;
+                    else
+                        x*=y;
+                    editText.setText(String.valueOf(0));
+                }
+        );
 
         findViewById(R.id.subtractionButton).setOnClickListener
-                (
-                        view ->
-                        {
-                            operation=operations.subtraction;
-                            if(onX)
-                                onX=false;
-                            else
-                                x-=y;
-                            editText.setText(String.valueOf(0));
-                        }
-                );
+        (
+                view ->
+                {
+                    operation=operations.subtraction;
+                    if(onX)
+                        onX=false;
+                    else
+                        x-=y;
+                    editText.setText(String.valueOf(0));
+                }
+        );
 
         findViewById(R.id.factorialButton).setOnClickListener
         (
@@ -179,26 +180,26 @@ public class CalculatorActivity extends AppCompatActivity
         );
 
         findViewById(R.id.cosineButton).setOnClickListener
-                (
-                        view ->
-                        {
-                            if(onX)
-                                editText.setText(String.valueOf(x=Math.cos(Math.toRadians(x))));
-                            else
-                                editText.setText(String.valueOf(y=Math.cos(Math.toRadians(y))));
-                        }
-                );
+        (
+                view ->
+                {
+                    if(onX)
+                        editText.setText(String.valueOf(x=Math.cos(Math.toRadians(x))));
+                    else
+                        editText.setText(String.valueOf(y=Math.cos(Math.toRadians(y))));
+                }
+        );
 
         findViewById(R.id.tangentButton).setOnClickListener
-                (
-                        view ->
-                        {
-                            if(onX)
-                                editText.setText(String.valueOf(x=Math.tan(Math.toRadians(x))));
-                            else
-                                editText.setText(String.valueOf(y=Math.tan(Math.toRadians(y))));
-                        }
-                );
+        (
+                view ->
+                {
+                    if(onX)
+                        editText.setText(String.valueOf(x=Math.tan(Math.toRadians(x))));
+                    else
+                        editText.setText(String.valueOf(y=Math.tan(Math.toRadians(y))));
+                }
+        );
     }
 
     private double factorial(double number)

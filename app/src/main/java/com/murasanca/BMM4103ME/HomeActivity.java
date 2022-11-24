@@ -51,8 +51,7 @@ public class HomeActivity extends AppCompatActivity
         Button minusBttn= findViewById(R.id.minusButton);
         minusBttn.setOnClickListener(view -> add2Counter(-1));
 
-        //TODO: Overriding calculateImageButton's onClick event.
-
+        findViewById(R.id.calculateImageButton).setOnClickListener(view -> startActivity(new Intent(HomeActivity.this,CalculatorActivity.class)));
 
         SensorManager sensorManager=(SensorManager) getSystemService(SENSOR_SERVICE);
         Sensor sensorShake=sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);

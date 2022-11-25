@@ -1,6 +1,7 @@
 package com.murasanca.BMM4103ME;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -38,6 +39,17 @@ public class CalculatorActivity extends AppCompatActivity
         Objects.requireNonNull(getSupportActionBar()).hide();
 
         setContentView(R.layout.activity_calculator);
+
+        findViewById(R.id.modeImageButton).setOnClickListener
+        (
+            view ->
+            {
+                if(AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_NO)
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                else
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+        );
 
         editText=findViewById(R.id.editTextNumber);
         setEditText(0);

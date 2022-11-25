@@ -21,7 +21,7 @@ public class CalculatorActivity extends AppCompatActivity
         division
     }
     private operations operation=null;
-    //private EditText editText;
+    private EditText editText;
     private double x=0,y=0;
     private boolean onX=true;
 
@@ -61,7 +61,6 @@ public class CalculatorActivity extends AppCompatActivity
                     }
                     catch (Exception exception)
                     {
-                        //TODO: Make a toast.
                         Toast.makeText(getApplicationContext(),"Enter a number.",Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -189,10 +188,9 @@ public class CalculatorActivity extends AppCompatActivity
                 view ->
                 {
                     if(onX)
-
-                        editText.setText(String.valueOf(x=Math.cos(Math.toRadians(x))));
+                        setEditText(x=Math.cos(Math.toRadians(x)));
                     else
-                        editText.setText(String.valueOf(y=Math.cos(Math.toRadians(y))));
+                        setEditText(y=Math.cos(Math.toRadians(y)));
                 }
         );
 
@@ -201,9 +199,9 @@ public class CalculatorActivity extends AppCompatActivity
                 view ->
                 {
                     if(onX)
-                        editText.setText(String.valueOf(x=Math.tan(Math.toRadians(x))));
+                        setEditText(x=Math.tan(Math.toRadians(x)));
                     else
-                        editText.setText(String.valueOf(y=Math.tan(Math.toRadians(y))));
+                        setEditText(y=Math.tan(Math.toRadians(y)));
                 }
         );
     }
@@ -222,11 +220,10 @@ public class CalculatorActivity extends AppCompatActivity
             return number;
     }
 
-    //TODO: Definition of setEditText function.
     private void setEditText(double value)
     {
         if((int)value==value)
-            editText.setText(String.valueOf((int)value);
+            editText.setText(String.valueOf((int)value));
         else
             editText.setText(String.valueOf(value));
     }

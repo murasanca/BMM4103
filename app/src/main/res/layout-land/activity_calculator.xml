@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".CalculatorActivity">
+
+    <ImageView
+        android:id="@+id/calculateImageView"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/calculatorImage"
+        android:rotation="-12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/calculate"
+        app:tint="@color/white" />
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="95dp"
+        android:autofillHints=""
+        android:backgroundTint="@color/white"
+        android:ems="16"
+        android:fontFamily="cursive"
+        android:hint="@string/counter"
+        android:inputType="numberSigned|number|numberDecimal"
+        android:rotation="-12"
+        android:text="@string/counter"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/allClearButton"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="3dp"
+        android:backgroundTint="@color/red"
+        android:rotation="-12"
+        android:text="@string/ac"
+        app:layout_constraintBottom_toTopOf="@+id/divisionButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculateImageView"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="3dp"
+        android:backgroundTint="@color/pink"
+        android:rotation="-12"
+        android:text="@string/c"
+        app:layout_constraintBottom_toTopOf="@+id/multiplicationButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculateImageView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/equalButton"
+        android:layout_width="128dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="18dp"
+        android:backgroundTint="@color/green"
+        android:rotation="-12"
+        android:text="@string/equal"
+        app:layout_constraintBottom_toTopOf="@+id/subtractionButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculateImageView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/divisionButton"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="3dp"
+        android:backgroundTint="@color/blue"
+        android:rotation="-12"
+        android:text="@string/slash"
+        app:layout_constraintBottom_toTopOf="@+id/factorialButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/multiplicationButton"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="3dp"
+        android:backgroundTint="@color/blue"
+        android:rotation="-12"
+        android:text="@string/x"
+        app:layout_constraintBottom_toTopOf="@+id/sinusButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/subtractionButton"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="3dp"
+        android:backgroundTint="@color/blue"
+        android:rotation="-12"
+        android:text="@string/minus"
+        app:layout_constraintBottom_toTopOf="@+id/cosineButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/additionButton"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="3dp"
+        android:backgroundTint="@color/blue"
+        android:rotation="-12"
+        android:text="@string/plus"
+        app:layout_constraintBottom_toTopOf="@+id/tangentButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/factorialButton"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="52dp"
+        android:backgroundTint="@color/blue"
+        android:rotation="-12"
+        android:text="@string/factorial"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/sinusButton"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="87dp"
+        android:backgroundTint="@color/blue"
+        android:rotation="-12"
+        android:text="@string/sin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/cosineButton"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="122dp"
+        android:backgroundTint="@color/blue"
+        android:rotation="-12"
+        android:text="@string/cos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/tangentButton"
+        android:layout_width="64dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="157dp"
+        android:backgroundTint="@color/blue"
+        android:rotation="-12"
+        android:text="@string/tan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,6 @@ import android.os.Vibrator;
 import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Button;
 
 import java.util.Objects;
 
@@ -49,15 +48,10 @@ public class SettingsActivity extends AppCompatActivity
         upperLimitTextView=findViewById(R.id.upperLimitTextView);
         upperLimitTextView.setText(String.valueOf(SharedPreferencesClass.getUpperLimit()));
 
-        Button upperLimitMinusBttn=findViewById(R.id.upperLimitMinusButton);
-        Button lowerLimitMinusBttn=findViewById(R.id.lowerLimitMinusButton);
-        Button upperLimitPlusBttn=findViewById(R.id.upperLimitPlusButton);
-        Button lowerLimitPlusBttn=findViewById(R.id.lowerLimitPlusButton);
-
-        upperLimitMinusBttn.setOnClickListener(view->add2UpperLimit(-1));
-        lowerLimitMinusBttn.setOnClickListener(view->add2LowerLimit(-1));
-        upperLimitPlusBttn.setOnClickListener(view->add2UpperLimit(1));
-        lowerLimitPlusBttn.setOnClickListener(view->add2LowerLimit(1));
+        findViewById(R.id.upperLimitMinusButton).setOnClickListener(view->add2UpperLimit(-1));
+        findViewById(R.id.lowerLimitMinusButton).setOnClickListener(view->add2LowerLimit(-1));
+        findViewById(R.id.upperLimitPlusButton).setOnClickListener(view->add2UpperLimit(1));
+        findViewById(R.id.lowerLimitPlusButton).setOnClickListener(view->add2LowerLimit(1));
     }
 
     @Override
@@ -75,10 +69,10 @@ public class SettingsActivity extends AppCompatActivity
             if(SharedPreferencesClass.getSoundCheck())
             {
                 RingtoneManager.getRingtone
-                    (
-                        getApplicationContext(),
-                        RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-                    ).play();
+                (
+                    getApplicationContext(),
+                    RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+                ).play();
             }
             if(SharedPreferencesClass.getVibrationCheck())
                 ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE)).vibrate(128);
@@ -96,10 +90,10 @@ public class SettingsActivity extends AppCompatActivity
             if(SharedPreferencesClass.getSoundCheck())
             {
                 RingtoneManager.getRingtone
-                    (
-                        getApplicationContext(),
-                        RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-                    ).play();
+                (
+                    getApplicationContext(),
+                    RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+                ).play();
             }
             if(SharedPreferencesClass.getVibrationCheck())
                 ((Vibrator)getSystemService(Context.VIBRATOR_SERVICE)).vibrate(128);

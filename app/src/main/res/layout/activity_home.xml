@@ -78,6 +78,7 @@
         app:tint="@color/white" />
 
     <ImageButton
+        android:contentDescription="@string/calculatorImage"
         android:backgroundTint="@color/transparent"
         android:id="@+id/calculateImageButton"
         android:layout_width="64dp"

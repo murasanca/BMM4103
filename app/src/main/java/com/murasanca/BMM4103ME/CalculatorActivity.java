@@ -7,6 +7,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.Objects;
 
@@ -20,7 +21,7 @@ public class CalculatorActivity extends AppCompatActivity
         division
     }
     private operations operation=null;
-    private EditText editText;
+    //private EditText editText;
     private double x=0,y=0;
     private boolean onX=true;
 
@@ -39,7 +40,7 @@ public class CalculatorActivity extends AppCompatActivity
         setContentView(R.layout.activity_calculator);
 
         editText=findViewById(R.id.editTextNumber);
-        editText.setText(String.valueOf(0));
+        setEditText(0);
         editText.addTextChangedListener
         (
             new TextWatcher()
@@ -58,21 +59,25 @@ public class CalculatorActivity extends AppCompatActivity
                         else
                             y=Double.parseDouble(editable.toString());
                     }
-                    catch (Exception exception){}
+                    catch (Exception exception)
+                    {
+                        //TODO: Make a toast.
+                        Toast.makeText(getApplicationContext(),"Enter a number.",Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         );
 
-        findViewById(R.id.allClearButton).setOnClickListener(view -> editText.setText(String.valueOf(x=y=0)));
+        findViewById(R.id.allClearButton).setOnClickListener(view ->setEditText(x=y=0));
 
         findViewById(R.id.clearButton).setOnClickListener
         (
                 view ->
                 {
                     if(onX)
-                        editText.setText(String.valueOf(x=y=0));
+                        setEditText(x=y=0);
                     else
-                        editText.setText(String.valueOf(y=0));
+                        setEditText(y=0);
                 }
         );
 
@@ -80,25 +85,26 @@ public class CalculatorActivity extends AppCompatActivity
         (
                 view ->
                 {
-                    switch (operation)
-                    {
-                        case addition:
-                            x+=y;
-                            break;
-                        case subtraction:
-                            x-=y;
-                            break;
-                        case multiplication:
-                            x*=y;
-                            break;
-                        case division:
-                            if(y!=0)
-                                x/=y;
-                            break;
-                        default:
-                            break;
-                    }
-                    editText.setText(String.valueOf(x));
+                    if(operation!=null)
+                        switch (operation)
+                        {
+                            case addition:
+                                x+=y;
+                                break;
+                            case subtraction:
+                                x-=y;
+                                break;
+                            case multiplication:
+                                x*=y;
+                                break;
+                            case division:
+                                if(y!=0)
+                                    x/=y;
+                                break;
+                            default:
+                                break;
+                        }
+                    setEditText(x);
                     onX=false;
                     y=0;
                 }
@@ -113,7 +119,7 @@ public class CalculatorActivity extends AppCompatActivity
                         onX=false;
                     else
                         x+=y;
-                    editText.setText(String.valueOf(0));
+                    setEditText(0);
                 }
         );
 
@@ -126,7 +132,7 @@ public class CalculatorActivity extends AppCompatActivity
                         onX=false;
                     else if(y!=0)
                         x/=y;
-                    editText.setText(String.valueOf(0));
+                    setEditText(0);
                 }
         );
 
@@ -139,7 +145,7 @@ public class CalculatorActivity extends AppCompatActivity
                         onX=false;
                     else
                         x*=y;
-                    editText.setText(String.valueOf(0));
+                    setEditText(0);
                 }
         );
 
@@ -152,7 +158,7 @@ public class CalculatorActivity extends AppCompatActivity
                         onX=false;
                     else
                         x-=y;
-                    editText.setText(String.valueOf(0));
+                    setEditText(0);
                 }
         );
 
@@ -161,9 +167,9 @@ public class CalculatorActivity extends AppCompatActivity
                 view ->
                 {
                     if(onX)
-                        editText.setText(String.valueOf(x=factorial(x)));
+                        setEditText(x=factorial(x));
                     else
-                        editText.setText(String.valueOf(y=factorial(y)));
+                        setEditText(y=factorial(y));
                 }
         );
 
@@ -172,9 +178,9 @@ public class CalculatorActivity extends AppCompatActivity
                 view ->
                 {
                     if(onX)
-                        editText.setText(String.valueOf(x=Math.sin(Math.toRadians(x))));
+                        setEditText(x=Math.sin(Math.toRadians(x)));
                     else
-                        editText.setText(String.valueOf(y=Math.sin(Math.toRadians(y))));
+                        setEditText(y=Math.sin(Math.toRadians(y)));
                 }
         );
 
@@ -183,6 +189,7 @@ public class CalculatorActivity extends AppCompatActivity
                 view ->
                 {
                     if(onX)
+
                         editText.setText(String.valueOf(x=Math.cos(Math.toRadians(x))));
                     else
                         editText.setText(String.valueOf(y=Math.cos(Math.toRadians(y))));
@@ -213,5 +220,14 @@ public class CalculatorActivity extends AppCompatActivity
         }
         else
             return number;
+    }
+
+    //TODO: Definition of setEditText function.
+    private void setEditText(double value)
+    {
+        if((int)value==value)
+            editText.setText(String.valueOf((int)value);
+        else
+            editText.setText(String.valueOf(value));
     }
 }

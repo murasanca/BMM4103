@@ -1,12 +1,15 @@
 # <a href="https://www.youtube.com/playlist?list=PLQFPOffxPDhg976ldEtlRZ0ukfgIltjlG" target="_blank">BMM4103ME</a>
-Mobile Programming Midterm Exam
+<img alt="Murat Sancak" src="https://github.com/murasanca/Database/blob/main/MS/msA1920x1080.png">
 <hr>
-<img alt="Murat Sancak" src="https://github.com/murasanca/Database/blob/main/MS/msA7680x4320.png">
+<p align="center">Mobile Programming Midterm Exam</p>
 <hr>
-<a href="mailto:murasanca@pm.me" target="_blank">murasanca@pm.me</a>
-<br><br>
-Murat Sancak
-<br>
-@murasanca
-<br>
-∞
+<img alt="Murat Sancak" src="https://raw.githubusercontent.com/murasanca/Database/main/MS/msW1024x256.png">
+<p align="center">
+	<a href="mailto:murasanca@pm.me" target="_blank">murasanca@pm.me</a>
+	<br>
+	Murat Sancak
+	<br>
+	<a href="https://www.murasanca.com" target="_blank">murasanca</a>
+	<br>
+	∞
+</p>

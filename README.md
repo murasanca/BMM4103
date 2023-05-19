@@ -1,5 +1,5 @@
 # <a href="https://www.youtube.com/playlist?list=PLQFPOffxPDhg976ldEtlRZ0ukfgIltjlG" target="_blank">BMM4103ME</a>
-<img alt="Murat Sancak" src="https://github.com/murasanca/Database/blob/main/MS/msA1920x1080.png">
+<img alt="Mobile Programming Midterm Exam" src="https://github.com/murasanca/Database/blob/main/MS/msA1920x1080.png">
 <hr>
 <p align="center">Mobile Programming Midterm Exam</p>
 <hr>
